@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <title>Form and Game</title>
+
+    <body style="background-color: rgb(39, 36, 36);">
+        <div class="container">
+            <div class="container-fluid" style="color:dodgerblue">
+                <h1>Sign Up Form</h1>
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                      <ul class="nav navbar-nav" style="float: right;">
+                        <li><a href="#" id="page1">Page 1</a></li>
+                        <li><a href="#" id="page2">Page 2</a></li>
+                        <li><a href="#" id="page3">Page 3</a></li>
+                      </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <div style="background-color:rgb(106, 111, 116);font-size: 25px;">
+                <form class="form-inline">
+                    <div class="form-group">
+                        Name:
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <br><br>
+                    <div class="form-group">
+                        Email address:
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <br><br>
+                    <div class="form-group">
+                      Contact No.:
+                      <input type="text" class="form-control" id="contact_no">
+                    </div>
+                    <br><br>
+                    <div class="radio">
+                        Gender:
+                        <label><input type="radio" name="gender" checked> Male</label>
+                    
+                        <label><input type="radio" name="gender"> Female</label>
+                    </div>
+                    <br><br>
+                    <div class="checkbox">
+                        Hobbies:
+                      <label><input type="checkbox"> Sports</label>
+                      <label><input type="checkbox"> Singing</label>
+                      <label><input type="checkbox"> Other</label>
+                    </div>
+                    <br><br>
+                    Subjects:
+                    <select class="form-select" >
+                        <option value="1">Physics</option>
+                        <option value="2">Maths</option>
+                        <option value="3">Chemistry</option>
+                    </select>
+                    <br><br>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="page1">
+            Page1 Div
+        </div>
+        <div class="page2">
+            Page2 Div
+        </div>
+        <div class="page3">
+            Page3 Div
+        </div>
+        <hr style="width:100%;text-align:left;margin-left:0">
+        <center>
+        <h1>Game</h1>
+        </center>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="fadeIn">fadeIn</button>
+        <button id="fadeOut">fadeOut</button>
+        <div>
+            <br><br>
+            <span id="dot1" class="dot"></span>
+            <br><br>
+            <hr style="width:50%;text-align:center;margin: left 100px;">
+            <button id="go">Go</button>
+            <button id="bring">Bring</button>
+            <br><br>
+            <span id="dot2" class="dot"></span>
+        </div>
+        <script>
+            $( document ).ready(function() {
+                $('.page1').hide();
+                $('.page2').hide();
+                $('.page3').hide();
+                
+                $( "#page1" ).mouseenter(function() {
+                    $('.page1').show();
+                });
+                $( "#page1" ).mouseleave(function() {
+                    $('.page1').hide();
+                });
+
+                $( "#page2" ).mouseenter(function() {
+                    $('.page2').show();
+                });
+                $( "#page2" ).mouseleave(function() {
+                    $('.page2').hide();
+                });
+
+                $( "#page3" ).mouseenter(function() {
+                    $('.page3').show();
+                });
+                $( "#page3" ).mouseleave(function() {
+                    $('.page3').hide();
+                });
+
+            });
+            
+            $(document).ready(function(){
+
+                $("#start").click(function a(){
+                    $('#dot1').animate({left: "1000px"}, "slow", function(){
+                        $('#dot1').animate({left: "0px"}, "slow",a())
+                    })
+            })
+            $("#stop").click(function(){
+                $('#dot1').stop();
+                })
+             }); 
+
+             $("#fadeIn").click(function(){
+                $('#dot1').fadeIn();
+            })
+
+            
+            $("#fadeOut").click(function(){
+                $('#dot1').fadeOut();
+            })
+
+
+            $(document).ready(function(){
+                $("#go").click(function(){
+                var dot2 = $("#dot2");
+                dot2.animate({left: '1000px'}, "slow");
+                });
+                
+                $("#bring").click(function(){
+                var dot2 = $("#dot2");
+                dot2.animate({left: '0px'}, "slow");
+                });
+            }); 
+        </script>
+    </body>
+</html>
